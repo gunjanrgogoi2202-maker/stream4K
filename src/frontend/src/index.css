@@ -1,0 +1,90 @@
+@import url("https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200..800&family=Satoshi:wght@300..700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300..700&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Dark gaming theme */
+    --background: 0.1 0 0;
+    --foreground: 0.96 0.005 285;
+    --card: 0.13 0 0;
+    --card-foreground: 0.96 0.005 285;
+    --popover: 0.12 0 0;
+    --popover-foreground: 0.96 0.005 285;
+    /* Red accent for LIVE / primary CTAs */
+    --primary: 0.55 0.22 27;
+    --primary-foreground: 0.98 0 0;
+    /* Subtle surface */
+    --secondary: 0.18 0.005 285;
+    --secondary-foreground: 0.96 0.005 285;
+    --muted: 0.16 0.005 285;
+    --muted-foreground: 0.55 0.01 285;
+    /* Purple for premium */
+    --accent: 0.52 0.22 293;
+    --accent-foreground: 0.98 0 0;
+    --destructive: 0.55 0.22 27;
+    --destructive-foreground: 0.98 0 0;
+    --border: 0.22 0.005 285;
+    --input: 0.18 0.005 285;
+    --ring: 0.55 0.22 27;
+    /* Special tokens */
+    --live: 0.55 0.22 27;
+    --premium: 0.52 0.22 293;
+    --premium-foreground: 0.98 0 0;
+    --radius: 0.5rem;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground font-body;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-display;
+  }
+}
+
+@layer utilities {
+  .live-dot {
+    @apply inline-block w-2 h-2 rounded-full bg-live animate-pulse_live;
+  }
+  .scrollbar-thin {
+    scrollbar-width: thin;
+    scrollbar-color: oklch(var(--border)) transparent;
+  }
+  .scrollbar-thin::-webkit-scrollbar {
+    width: 4px;
+  }
+  .scrollbar-thin::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  .scrollbar-thin::-webkit-scrollbar-thumb {
+    background: oklch(var(--border));
+    border-radius: 2px;
+  }
+  .gradient-card {
+    background: linear-gradient(
+      135deg,
+      oklch(0.18 0.02 285),
+      oklch(0.14 0.01 285)
+    );
+  }
+  .glow-red {
+    box-shadow: 0 0 20px oklch(0.55 0.22 27 / 0.3);
+  }
+  .glow-purple {
+    box-shadow: 0 0 20px oklch(0.52 0.22 293 / 0.3);
+  }
+}
